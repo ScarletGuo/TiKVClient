@@ -50,6 +50,11 @@ PINGCAP_DEFINE_TRAITS(coprocessor, , Coprocessor)
 PINGCAP_DEFINE_TRAITS(mpp, DispatchTask, DispatchMPPTask)
 PINGCAP_DEFINE_TRAITS(mpp, CancelTask, CancelMPPTask)
 PINGCAP_DEFINE_TRAITS(mpp, IsAlive, IsAlive)
+// added for raw kv requests
+PINGCAP_DEFINE_TRAITS(kvrpcpb, RawPut, RawPut)
+PINGCAP_DEFINE_TRAITS(kvrpcpb, RawBatchPut, RawBatchPut)
+PINGCAP_DEFINE_TRAITS(kvrpcpb, RawGet, RawGet)
+PINGCAP_DEFINE_TRAITS(kvrpcpb, RawBatchGet, RawBatchGet)
 
 // streaming trait for BatchRequest
 template <>

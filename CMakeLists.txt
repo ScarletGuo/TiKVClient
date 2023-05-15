@@ -4,7 +4,7 @@ set (CMAKE_CXX_STANDARD 17)
 set (CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -Wno-narrowing")
 set (CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set (CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/cmake/Modules/")
-enable_testing()
+# enable_testing()
 
 if (NOT Protobuf_INCLUDE_DIR)
     include (cmake/find_protobuf.cmake)
