@@ -357,10 +357,6 @@ void RegionCache::onRegionStale(Backoffer & /*bo*/, RPCContextPtr ctx, const err
     for (int i = 0; i < stale_epoch.current_regions_size(); i++)
     {
         auto meta = stale_epoch.current_regions(i);
-        if (auto * pd = static_cast<pd::CodecClient *>(pd_client.get()))
-        {
-            pd->processRegionResult(meta);
-        }
         RegionPtr region = std::make_shared<Region>(meta, meta.peers(0));
         region->switchPeer(ctx->peer.id());
         insertRegionToCache(region);

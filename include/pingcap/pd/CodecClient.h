@@ -18,14 +18,14 @@ struct CodecClient : public Client
 
     std::pair<metapb::Region, metapb::Peer> getRegionByKey(const std::string & key) override
     {
-        auto [region, leader] = Client::getRegionByKey(encodeBytes(key));
-        return std::make_pair(processRegionResult(region), leader);
+        auto [region, leader] = Client::getRegionByKey(key);
+        return std::make_pair(region, leader);
     }
 
     std::pair<metapb::Region, metapb::Peer> getRegionByID(uint64_t region_id) override
     {
         auto [region, leader] = Client::getRegionByID(region_id);
-        return std::make_pair(processRegionResult(region), leader);
+        return std::make_pair(region, leader);
     }
 
     static metapb::Region processRegionResult(metapb::Region & region)
